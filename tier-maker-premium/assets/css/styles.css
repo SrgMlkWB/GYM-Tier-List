@@ -16,6 +16,12 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.main-content {
+  flex: 1;
 }
 
 h1 {
@@ -82,20 +88,24 @@ h1 {
   gap: 8px;
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 120px;
+  min-height: 170px;
 }
 
 .exercise-pool {
+  width: 300px;
+  height: calc(100vh - 20px);
+  position: sticky;
+  top: 10px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   padding: 10px;
-  margin-top: 15px;
+  overflow-y: auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .exercise-item-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 120px);
+  grid-template-columns: 1fr;
   gap: 8px;
 }
 
@@ -202,58 +212,149 @@ h1 {
   background: #aa00aa;
 }
 
-/* Ajuster le responsive */
+/* Personnaliser la scrollbar pour la sidebar */
+.exercise-pool::-webkit-scrollbar {
+  width: 8px;
+}
+
+.exercise-pool::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.exercise-pool::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.exercise-pool::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Version mobile */
 @media (max-width: 1200px) {
-  .tier-items,
+  body {
+    padding-bottom: 140px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .exercise-pool {
+    width: 100%;
+    height: 130px; /* Réduit la hauteur */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px; /* Réduit le padding */
+    border-radius: 10px 10px 0 0;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+
   .exercise-item-container {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: max-content;
+    height: 100%; /* Assure que le conteneur prend toute la hauteur */
+    align-items: center;
   }
 
   .exercise-item {
-    height: 350px;
+    flex: 0 0 100px; /* Réduit la taille */
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    margin: 0;
+  }
+
+  .exercise-name {
+    font-size: 0.65em; /* Réduit légèrement la taille du texte */
+  }
+
+  .tier-buttons {
+    gap: 1px; /* Réduit l'espace entre les boutons */
   }
 
   .tier-btn {
-    min-width: 50px;
-    min-height: 50px;
-    width: 50px;
-    height: 50px;
-    flex: 0 0 50px;
-    font-size: 1.5em;
-  }
-}
-
-@media (max-width: 768px) {
-  .tier-items,
-  .exercise-item-container {
-    grid-template-columns: 1fr;
+    min-width: 16px; /* Réduit la taille des boutons */
+    min-height: 16px;
+    width: 16px;
+    height: 16px;
+    font-size: 0.65em;
   }
 
+  /* Optimisation du scroll horizontal */
+  .exercise-pool {
+    -webkit-overflow-scrolling: touch; /* Scroll plus fluide sur iOS */
+    scrollbar-width: thin; /* Pour Firefox */
+    scroll-behavior: smooth;
+  }
+
+  .exercise-pool::-webkit-scrollbar {
+    height: 6px; /* Scrollbar plus fine */
+  }
+
+  .exercise-pool::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .exercise-pool::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+
+  /* Optimisations tactiles */
   .exercise-item {
-    height: 300px;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
-  .tier-btn {
-    min-width: 40px;
-    min-height: 40px;
-    width: 40px;
-    height: 40px;
-    flex: 0 0 40px;
-    font-size: 1.2em;
+  .exercise-item.dragging {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+
+  /* Assure que les vidéos sont bien dimensionnées */
+  .exercise-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Optimisation de l'overlay */
+  .exercise-overlay {
+    background: rgba(0, 0, 0, 0.7);
   }
 }
 
+/* Très petits écrans */
 @media (max-width: 480px) {
-  .exercise-item {
-    height: 250px;
+  body {
+    padding-bottom: 120px;
   }
 
-  .tier-btn {
-    min-width: 35px;
-    min-height: 35px;
-    width: 35px;
-    height: 35px;
-    flex: 0 0 35px;
-    font-size: 1.1em;
+  .exercise-pool {
+    height: 110px;
+    padding: 8px;
+  }
+
+  .exercise-item {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+  }
+
+  .exercise-name {
+    font-size: 0.6em;
   }
 }
