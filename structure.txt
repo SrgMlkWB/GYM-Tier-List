@@ -1,0 +1,10 @@
+tier-maker-premium/
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   ├── exercises.js
+│   │   └── main.js
+│   └── videos/
+├── index.html
+└── README.md
