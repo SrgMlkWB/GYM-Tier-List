@@ -137,6 +137,7 @@ h1 {
 
 .exercise-overlay {
   position: absolute;
+  top: 10px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -234,16 +235,58 @@ h1 {
 /* Version mobile */
 @media (max-width: 1200px) {
   body {
-    padding-bottom: 140px;
+    padding: 5px;
+    /* Augmenter le padding-bottom pour accommoder la nouvelle hauteur */
+    padding-bottom: 30vh;
   }
 
   .container {
     flex-direction: column;
+    padding: 0 5px;
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+
+  #downloadBtn {
+    margin: 5px auto;
+    padding: 6px 15px;
+    font-size: 1em;
+  }
+
+  .tier-container {
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .tier-row {
+    min-height: 80px;
+    gap: 4px;
+  }
+
+  .tier-label {
+    width: 80px;
+    font-size: 1em;
+  }
+
+  .tier-items {
+    padding: 4px;
+    grid-template-columns: repeat(auto-fill, 80px);
+    gap: 4px;
+    min-height: 80px;
+  }
+
+  .exercise-item {
+    width: 80px;
+    height: 80px;
   }
 
   .exercise-pool {
     width: 100%;
-    height: 130px; /* Réduit la hauteur */
+    height: 30vh; /* 30% de la hauteur de l'écran */
     position: fixed;
     bottom: 0;
     left: 0;
@@ -251,7 +294,7 @@ h1 {
     top: auto;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 10px; /* Réduit le padding */
+    padding: 10px;
     border-radius: 10px 10px 0 0;
     background: rgba(20, 20, 20, 0.95);
     backdrop-filter: blur(10px);
@@ -263,15 +306,15 @@ h1 {
     flex-wrap: nowrap;
     gap: 8px;
     width: max-content;
-    height: 100%; /* Assure que le conteneur prend toute la hauteur */
+    height: 100%;
     align-items: center;
   }
 
   .exercise-item {
-    flex: 0 0 100px; /* Réduit la taille */
-    width: 100px;
-    height: 100px;
-    min-width: 100px;
+    flex: 0 0 auto;
+    width: calc(30vh - 20px); /* Proportionnel à la hauteur */
+    height: calc(30vh - 20px);
+    min-width: auto;
     margin: 0;
   }
 
@@ -340,21 +383,51 @@ h1 {
 /* Très petits écrans */
 @media (max-width: 480px) {
   body {
-    padding-bottom: 120px;
+    padding: 3px;
+    padding-bottom: 30vh; /* Maintenir le même ratio */
   }
 
-  .exercise-pool {
-    height: 150px;
-    padding: 8px;
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .tier-row {
+    min-height: 60px;
+  }
+
+  .tier-label {
+    width: 60px;
+    font-size: 0.9em;
+  }
+
+  .tier-items {
+    grid-template-columns: repeat(auto-fill, 60px);
+    min-height: 100px;
   }
 
   .exercise-item {
-    width: 90px;
-    height: 90px;
-    min-width: 90px;
+    width: calc(30vh - 30px);
+    height: calc(30vh - 30px);
+  }
+
+  .exercise-pool {
+    height: 30vh; /* Maintenir le même ratio */
+    padding: 35px;
   }
 
   .exercise-name {
+    font-size: 0.55em;
+  }
+
+  .tier-buttons {
+    gap: 1px;
+  }
+
+  .tier-btn {
+    min-width: 14px;
+    min-height: 14px;
+    width: 14px;
+    height: 14px;
     font-size: 0.6em;
   }
 }
