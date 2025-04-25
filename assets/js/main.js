@@ -1,6 +1,21 @@
 const exercisePool = document.getElementById("exercisePool");
 let draggedItem = null;
 
+// Fonction pour ajouter le label de classe de tier à un élément
+function addTierClassLabel(exerciseItem, tier) {
+  // Supprimer tout label existant
+  const existingLabel = exerciseItem.querySelector(".tier-class-label");
+  if (existingLabel) {
+    existingLabel.remove();
+  }
+
+  // Créer et ajouter le nouveau label
+  const tierLabel = document.createElement("div");
+  tierLabel.className = `tier-class-label ${tier.toLowerCase()}-tier`;
+  tierLabel.textContent = tier;
+  exerciseItem.appendChild(tierLabel);
+}
+
 function initializeExercises() {
   for (const [bodyPart, items] of Object.entries(exercises)) {
     const partDiv = document.createElement("div");
@@ -36,6 +51,8 @@ function initializeExercises() {
     exercisePool.appendChild(partDiv);
   }
 
+  // Utilise la fonction globale addTierClassLabel définie plus bas
+
   // Ajouter les événements de clic pour les boutons
   document.querySelectorAll(".tier-btn").forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -45,8 +62,29 @@ function initializeExercises() {
       const tierContainer = document.querySelector(`.tier-items[data-tier="${tier}"]`);
 
       if (exerciseItem && tierContainer) {
-        tierContainer.appendChild(exerciseItem.cloneNode(true));
+        const clonedItem = exerciseItem.cloneNode(true);
+        addTierClassLabel(clonedItem, tier);
+        tierContainer.appendChild(clonedItem);
         exerciseItem.remove(); // Supprime l'original
+
+        // Réattacher les événements de clic aux boutons du clone
+        clonedItem.querySelectorAll(".tier-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const item = e.target.closest(".exercise-item");
+            const newTier = e.target.dataset.tier;
+            const newTierContainer = document.querySelector(`.tier-items[data-tier="${newTier}"]`);
+
+            if (item && newTierContainer) {
+              const newClonedItem = item.cloneNode(true);
+              addTierClassLabel(newClonedItem, newTier);
+              newTierContainer.appendChild(newClonedItem);
+              item.remove();
+              checkCategoryVisibility();
+            }
+          });
+        });
+
         checkCategoryVisibility(); // Met à jour la visibilité
       }
     });
@@ -121,12 +159,18 @@ document.addEventListener("dragend", () => {
 
 document.addEventListener("dragover", (e) => e.preventDefault());
 
+// Utilise la fonction addTierClassLabel définie au début du fichier
+
 const tierItems = document.querySelectorAll(".tier-items");
 tierItems.forEach((tier) => {
   tier.addEventListener("dragover", (e) => e.preventDefault());
   tier.addEventListener("drop", (e) => {
     e.preventDefault();
     if (draggedItem) {
+      // Ajouter le label de classe de tier
+      const tierLetter = tier.dataset.tier;
+      addTierClassLabel(draggedItem, tierLetter);
+
       tier.appendChild(draggedItem);
       checkCategoryVisibility(draggedItem);
     }
@@ -137,6 +181,12 @@ exercisePool.addEventListener("dragover", (e) => e.preventDefault());
 exercisePool.addEventListener("drop", (e) => {
   e.preventDefault();
   if (draggedItem) {
+    // Supprimer le label de classe de tier quand l'élément est remis dans le pool
+    const existingLabel = draggedItem.querySelector(".tier-class-label");
+    if (existingLabel) {
+      existingLabel.remove();
+    }
+
     const category = draggedItem.closest(".exercise-item-container");
     if (category) {
       category.appendChild(draggedItem);

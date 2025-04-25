@@ -152,6 +152,34 @@ h1 {
   background: rgba(0, 0, 0, 0.5);
 }
 
+.tier-class-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.tier-class-label.s-tier {
+  background: #ff4444;
+}
+.tier-class-label.a-tier {
+  background: #ffbb33;
+}
+.tier-class-label.b-tier {
+  background: #00dd00;
+}
+.tier-class-label.c-tier {
+  background: #4444ff;
+}
+.tier-class-label.d-tier {
+  background: #aa00aa;
+}
+
 .exercise-name {
   font-size: 0.7em;
   margin-bottom: 1px;
@@ -331,6 +359,13 @@ h1 {
     font-size: 0.65em; /* Réduit légèrement la taille du texte */
   }
 
+  .tier-class-label {
+    bottom: 6px;
+    left: 6px;
+    font-size: 0.65em;
+    padding: 1px 4px;
+  }
+
   .tier-buttons {
     gap: 1px; /* Réduit l'espace entre les boutons */
   }
@@ -467,6 +502,13 @@ h1 {
 
   .exercise-name {
     font-size: 0.55em;
+  }
+
+  .tier-class-label {
+    bottom: 4px;
+    left: 4px;
+    font-size: 1.8em;
+    padding: 1px 3px;
   }
 
   .tier-buttons {
