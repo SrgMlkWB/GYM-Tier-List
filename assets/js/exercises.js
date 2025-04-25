@@ -53,25 +53,20 @@ const exercises = {
         "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-front-military-press-side.mp4#t=0.1",
     },
   ],
-  Dos: [
-    { name: "Tirage horizontal trapèzes", video: "[Remplacer par URL]" },
-    { name: "Tirage horizontal unilatéral", video: "[Remplacer par URL]" },
-    {
-      name: "Tirage poulie haute",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-back-lat-pulldown-front.mp4",
-    },
-    { name: "Relevé buste lombaires", video: "[Remplacer par URL]" },
-    {
-      name: "Tractions",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-back-pull-up-front.mp4",
-    },
-  ],
   Pectoraux: [
-    { name: "Machine inclinée", video: "[Remplacer par URL]" },
-    { name: "Smith incliné", video: "[Remplacer par URL]" },
+    {
+      name: "Machine inclinée",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-plate-loaded-decline-chest-press-side.mp4#t=0.1",
+    },
+    {
+      name: "Smith incliné",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Smithmachine-incline-bench-press-side.mp4#t=0.1",
+    },
     {
       name: "Pecs Fly",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-pec-fly-front.mp4#t=0.1",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-pec-fly-side.mp4#t=0.1",
     },
     {
       name: "Cable pec fly",
@@ -79,29 +74,58 @@ const exercises = {
     },
   ],
   Biceps: [
-    { name: "Curl biceps poulie neutre corde ou barre Z", video: "[Remplacer par URL]" },
-    { name: "Dégressif biceps à l'échec curl assis pupitre", video: "[Remplacer par URL]" },
+    {
+      name: "Curl biceps poulie neutre corde ou barre Z",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-bilateral-bayesian-curl-side.mp4#t=0.1",
+    },
+    {
+      name: "Dégressif biceps à l'échec curl assis pupitre",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-hammer-curl-front.mp4#t=0.1",
+    },
   ],
   Triceps: [
-    { name: "Extensions triceps barre", video: "[Remplacer par URL]" },
-    { name: "Corde extension triceps banc incliné", video: "[Remplacer par URL]" },
-    { name: "Extension triceps dégressif en X", video: "[Remplacer par URL]" },
+    {
+      name: "Extensions triceps barre",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-push-down-side.mp4#t=0.1",
+    },
+    {
+      name: "Corde extension triceps banc incliné",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-push-down-side.mp4#t=0.1",
+    },
+    {
+      name: "Extension triceps dégressif en X",
+      video:
+        "https://homegymreview.co.uk/wp-content/uploads/exercises/37191101-Cable-Standing-High-Cross-Triceps-Extension_Upper-Arms_max-2048x1150.jpg",
+    },
   ],
   Mollets: [
     {
       name: "Mollets debout",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-calves-standing-calf-raise-side.mp4",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-standing-calf-raises-front.mp4#t=0.1",
     },
-    { name: "Mollets assis deep", video: "[Remplacer par URL]" },
+    {
+      name: "Mollets assis deep",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-seated-calf-raise-front.mp4#t=0.1",
+    },
   ],
   Trapezius: [
     {
       name: "Shrugs debout haltère",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-traps-dumbbell-shrug-front.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-seated-shrug-front.mp4#t=0.1",
     },
   ],
   Abdos: [
-    { name: "Abs circuit (bike/crunch/L/R/Plank)", video: "[Remplacer par URL]" },
-    { name: "Abdos à la barre", video: "[Remplacer par URL]" },
+    {
+      name: "Abs circuit (bike/crunch/L/R/Plank)",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-kneeling-crunch-front.mp4#t=0.1",
+    },
+    {
+      name: "Abdos à la barre",
+      video: "https://thafd.bing.com/th/id/OIP.dfYQszFdcdsORrpwzoas_AHaHa?rs=1&pid=ImgDetMain",
+    },
   ],
 };
