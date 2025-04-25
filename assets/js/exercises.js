@@ -2,28 +2,43 @@ const exercises = {
   Jambes: [
     {
       name: "Leg curl cable machine",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Leg-lever-leg-curl-side.mp4#t=0.1",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-hamstring-curl-front.mp4#t=0.1",
     },
     {
       name: "Extension câble machine",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Leg-lever-leg-extension-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-leg-extension-front.mp4#t=0.1",
     },
     {
       name: "Squats Smith",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-quads-smith-machine-squat-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Smithmachine-squat-side.mp4#t=0.1",
     },
     {
       name: "Bulgarian Split Squat",
       video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-quads-dumbbell-bulgarian-split-squat-side.mp4",
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-bulgarian-split-squat-front.mp4#t=0.1",
     },
     {
       name: "Presse",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-quads-leg-press-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-leg-press-front.mp4#t=0.1",
     },
-    { name: "Leg extension + RED band", video: "[Remplacer par URL]" },
-    { name: "Leg curl uni", video: "[Remplacer par URL]" },
-    { name: "Superset : Abductions / Adduction", video: "[Remplacer par URL]" },
+    {
+      name: "Leg extension + RED band",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-leg-extension-front.mp4#t=0.1",
+    },
+    {
+      name: "Leg curl uni",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-plate-loaded-leg-extension-side.mp4#t=0.1",
+    },
+    {
+      name: "Superset : Abductions / Adduction",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-hip-adduction-front.mp4#t=0.1",
+    },
+    {
+      name: "Machine Hamstring Curl",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-hamstring-curl-front.mp4#t=0.1",
+    },
   ],
   Épaules: [
     {
@@ -66,21 +81,12 @@ const exercises = {
     },
   ],
   Biceps: [
-    {
-      name: "Curl biceps poulie neutre corde ou barre Z",
-      video: "[Remplacer par URL]",
-    },
-    {
-      name: "Dégressif biceps à l'échec curl assis pupitre",
-      video: "[Remplacer par URL]",
-    },
+    { name: "Curl biceps poulie neutre corde ou barre Z", video: "[Remplacer par URL]" },
+    { name: "Dégressif biceps à l'échec curl assis pupitre", video: "[Remplacer par URL]" },
   ],
   Triceps: [
     { name: "Extensions triceps barre", video: "[Remplacer par URL]" },
-    {
-      name: "Corde extension triceps banc incliné",
-      video: "[Remplacer par URL]",
-    },
+    { name: "Corde extension triceps banc incliné", video: "[Remplacer par URL]" },
     { name: "Extension triceps dégressif en X", video: "[Remplacer par URL]" },
   ],
   Mollets: [
@@ -97,10 +103,7 @@ const exercises = {
     },
   ],
   Abdos: [
-    {
-      name: "Abs circuit (bike/crunch/L/R/Plank)",
-      video: "[Remplacer par URL]",
-    },
+    { name: "Abs circuit (bike/crunch/L/R/Plank)", video: "[Remplacer par URL]" },
     { name: "Abdos à la barre", video: "[Remplacer par URL]" },
   ],
 };
