@@ -1,0 +1,13 @@
+{
+  "name": "gym-tier-list",
+  "version": "1.0.0",
+  "description": "A web application for creating and organizing workout exercise tier lists",
+  "private": true,
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}

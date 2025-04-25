@@ -2,18 +2,15 @@ const exercises = {
   Jambes: [
     {
       name: "Leg curl cable machine",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-Leg-lever-leg-curl-side.mp4#t=0.1",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Leg-lever-leg-curl-side.mp4#t=0.1",
     },
     {
       name: "Extension câble machine",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-Leg-lever-leg-extension-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Leg-lever-leg-extension-side.mp4",
     },
     {
       name: "Squats Smith",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-quads-smith-machine-squat-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-quads-smith-machine-squat-side.mp4",
     },
     {
       name: "Bulgarian Split Squat",
@@ -22,8 +19,7 @@ const exercises = {
     },
     {
       name: "Presse",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-quads-leg-press-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-quads-leg-press-side.mp4",
     },
     { name: "Leg extension + RED band", video: "[Remplacer par URL]" },
     { name: "Leg curl uni", video: "[Remplacer par URL]" },
@@ -32,13 +28,11 @@ const exercises = {
   Épaules: [
     {
       name: "Oiseau à la poulie ou banc",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-shoulders-cable-rear-delt-fly-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-shoulders-cable-rear-delt-fly-side.mp4",
     },
     {
       name: "Élévations latérales câble",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-shoulders-cable-lateral-raise-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-shoulders-cable-lateral-raise-side.mp4",
     },
     {
       name: "Développé militaire",
@@ -51,14 +45,12 @@ const exercises = {
     { name: "Tirage horizontal unilatéral", video: "[Remplacer par URL]" },
     {
       name: "Tirage poulie haute",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-back-lat-pulldown-front.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-back-lat-pulldown-front.mp4",
     },
     { name: "Relevé buste lombaires", video: "[Remplacer par URL]" },
     {
       name: "Tractions",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-back-pull-up-front.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-back-pull-up-front.mp4",
     },
   ],
   Pectoraux: [
@@ -66,8 +58,11 @@ const exercises = {
     { name: "Smith incliné", video: "[Remplacer par URL]" },
     {
       name: "Pecs Fly",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-pec-fly-front.mp4#t=0.1",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-pec-fly-front.mp4#t=0.1",
+    },
+    {
+      name: "Cable pec fly",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-cable-pec-fly-front.mp4#t=0.1",
     },
   ],
   Biceps: [
@@ -91,16 +86,14 @@ const exercises = {
   Mollets: [
     {
       name: "Mollets debout",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-calves-standing-calf-raise-side.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-calves-standing-calf-raise-side.mp4",
     },
     { name: "Mollets assis deep", video: "[Remplacer par URL]" },
   ],
   Trapezius: [
     {
       name: "Shrugs debout haltère",
-      video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-traps-dumbbell-shrug-front.mp4",
+      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-traps-dumbbell-shrug-front.mp4",
     },
   ],
   Abdos: [
