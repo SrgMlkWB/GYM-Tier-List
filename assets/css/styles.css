@@ -92,7 +92,7 @@ h1 {
 }
 
 .exercise-pool {
-  width: 300px;
+  width: 600px; /* Doublé de 300px */
   height: calc(100vh - 20px);
   position: sticky;
   top: 10px;
@@ -111,8 +111,8 @@ h1 {
 
 .exercise-item {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 240px; /* Doublé de 120px */
+  height: 240px; /* Doublé de 120px */
   border-radius: 12px;
   cursor: move;
   transition: all 0.3s ease;
