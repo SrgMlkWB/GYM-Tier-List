@@ -22,7 +22,7 @@
 - Incline machine
 - Smith incline
 - Pec fly
-- Cable pec fly
+- Cable pec fly"
 
 ## Biceps
 

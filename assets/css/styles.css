@@ -105,7 +105,7 @@ h1 {
 
 .exercise-item-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr); /* Modification ici pour avoir 2 colonnes */
   gap: 8px;
 }
 
@@ -137,7 +137,6 @@ h1 {
 
 .exercise-overlay {
   position: absolute;
-  top: 10px;
   bottom: 0;
   left: 0;
   right: 0;

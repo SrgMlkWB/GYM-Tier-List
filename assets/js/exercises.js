@@ -22,7 +22,7 @@ const exercises = {
       video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-leg-press-front.mp4#t=0.1",
     },
     {
-      name: "Leg extension + RED band",
+      name: "Leg extension + RED ban",
       video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-leg-extension-front.mp4#t=0.1",
     },
     {
@@ -35,24 +35,22 @@ const exercises = {
       video:
         "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-hip-adduction-front.mp4#t=0.1",
     },
-    {
-      name: "Machine Hamstring Curl",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-hamstring-curl-front.mp4#t=0.1",
-    },
   ],
   Épaules: [
     {
-      name: "Oiseau à la poulie ou banc",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-shoulders-cable-rear-delt-fly-side.mp4",
-    },
-    {
-      name: "Élévations latérales câble",
-      video: "https://media.musclewiki.com/media/uploads/videos/branded/male-shoulders-cable-lateral-raise-side.mp4",
-    },
-    {
-      name: "Développé militaire",
+      name: "Dumbbell Bayesian Lateral Raise",
       video:
-        "https://media.musclewiki.com/media/uploads/videos/branded/male-shoulders-barbell-shoulder-press-front.mp4",
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-bayesian-lateral-raise-front.mp4#t=0.1",
+    },
+    {
+      name: "Cable lateral raises",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-low-bilateral-lateral-raise-front.mp4#t=0.1",
+    },
+    {
+      name: "Military press",
+      video:
+        "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-front-military-press-side.mp4#t=0.1",
     },
   ],
   Dos: [
