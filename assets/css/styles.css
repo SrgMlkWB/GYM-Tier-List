@@ -285,7 +285,7 @@ h1 {
 
   .exercise-pool {
     width: 100%;
-    height: 30vh; /* 30% de la hauteur de l'écran */
+    height: 35vh; /* Augmenté légèrement pour accommoder 2 lignes */
     position: fixed;
     bottom: 0;
     left: 0;
@@ -301,19 +301,18 @@ h1 {
   }
 
   .exercise-item-container {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 1fr); /* 2 lignes */
     gap: 8px;
-    width: max-content;
     height: 100%;
     align-items: center;
+    padding: 5px;
   }
 
   .exercise-item {
-    flex: 0 0 auto;
-    width: calc(30vh - 20px); /* Proportionnel à la hauteur */
-    height: calc(30vh - 20px);
-    min-width: auto;
+    width: 140px; /* Taille fixe pour une meilleure présentation */
+    height: 140px;
     margin: 0;
   }
 
@@ -338,6 +337,7 @@ h1 {
     -webkit-overflow-scrolling: touch; /* Scroll plus fluide sur iOS */
     scrollbar-width: thin; /* Pour Firefox */
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
   }
 
   .exercise-pool::-webkit-scrollbar {
@@ -376,6 +376,46 @@ h1 {
   /* Optimisation de l'overlay */
   .exercise-overlay {
     background: rgba(0, 0, 0, 0.7);
+  }
+
+  .exercise-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .tier-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .tier-btn {
+    min-width: 24px; /* Boutons plus grands pour mobile */
+    min-height: 24px;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8em;
+  }
+
+  /* Optimisations pour le scroll horizontal */
+  .exercise-pool {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+
+  .exercise-item {
+    scroll-snap-align: start;
+  }
+
+  body {
+    padding-bottom: 35vh; /* Ajuster pour la nouvelle hauteur */
   }
 }
 
@@ -428,5 +468,21 @@ h1 {
     width: 14px;
     height: 14px;
     font-size: 0.6em;
+  }
+
+  .exercise-item {
+    width: 120px;
+    height: 120px;
+  }
+
+  .tier-btn {
+    min-width: 20px;
+    min-height: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .exercise-pool {
+    padding: 5px;
   }
 }
