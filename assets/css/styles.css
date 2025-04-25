@@ -92,8 +92,9 @@ h1 {
 }
 
 .exercise-pool {
-  width: 600px; /* Doublé de 300px */
-  height: calc(100vh - 20px);
+  width: 600px;
+  height: fit-content; /* Changé pour s'adapter au contenu */
+  min-height: 100px; /* Hauteur minimale quand il y a du contenu */
   position: sticky;
   top: 10px;
   background: rgba(255, 255, 255, 0.05);
@@ -101,12 +102,18 @@ h1 {
   padding: 10px;
   overflow-y: auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease; /* Animation douce pour les changements */
+}
+
+.exercise-pool:empty {
+  display: none; /* Cache complètement quand vide */
 }
 
 .exercise-item-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Modification ici pour avoir 2 colonnes */
+  grid-template-columns: repeat(auto-fit, 240px); /* auto-fit pour être responsive */
   gap: 8px;
+  justify-content: center; /* Centre les éléments */
 }
 
 .exercise-item {
@@ -285,19 +292,23 @@ h1 {
 
   .exercise-pool {
     width: 100%;
-    height: 35vh; /* Augmenté légèrement pour accommoder 2 lignes */
+    height: fit-content;
+    max-height: 50vh;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     top: auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-    background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+  }
+
+  .exercise-pool:empty {
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    padding-bottom: var(--pool-height, 50vh); /* Variable CSS dynamique */
   }
 
   .exercise-item-container {

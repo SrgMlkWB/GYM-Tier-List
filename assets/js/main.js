@@ -39,12 +39,15 @@ function initializeExercises() {
   // Ajouter les événements de clic pour les boutons
   document.querySelectorAll(".tier-btn").forEach((button) => {
     button.addEventListener("click", (e) => {
+      e.stopPropagation(); // Empêche la propagation de l'événement
       const exerciseItem = e.target.closest(".exercise-item");
       const tier = e.target.dataset.tier;
       const tierContainer = document.querySelector(`.tier-items[data-tier="${tier}"]`);
+
       if (exerciseItem && tierContainer) {
-        tierContainer.appendChild(exerciseItem);
-        checkCategoryVisibility(exerciseItem);
+        tierContainer.appendChild(exerciseItem.cloneNode(true));
+        exerciseItem.remove(); // Supprime l'original
+        checkCategoryVisibility(); // Met à jour la visibilité
       }
     });
   });
@@ -53,22 +56,52 @@ function initializeExercises() {
 // Fonction pour vérifier et mettre à jour la visibilité des catégories
 function checkCategoryVisibility(movedItem) {
   const categories = document.querySelectorAll(".exercise-category");
+  const exercisePool = document.getElementById("exercisePool");
+  let totalItems = 0;
 
   categories.forEach((category) => {
     const itemContainer = category.querySelector(".exercise-item-container");
     const title = category.querySelector("h3");
+    const itemCount = itemContainer.children.length;
 
-    if (itemContainer.children.length === 0) {
-      title.style.display = "none";
-    } else {
-      title.style.display = "block";
-    }
+    totalItems += itemCount;
 
-    // Masquer la catégorie entière si elle est vide
-    if (itemContainer.children.length === 0) {
+    if (itemCount === 0) {
       category.style.display = "none";
+      if (title) title.style.display = "none";
+    } else {
+      category.style.display = "block";
+      if (title) title.style.display = "block";
     }
   });
+
+  // Mise à jour de la hauteur du pool en fonction du contenu
+  if (totalItems === 0) {
+    exercisePool.style.display = "none";
+    document.documentElement.style.setProperty("--pool-height", "0px");
+  } else {
+    exercisePool.style.display = "block";
+
+    // Calcul de la hauteur nécessaire
+    const poolHeight = Math.min(
+      exercisePool.scrollHeight,
+      window.innerWidth <= 1200 ? window.innerHeight * 0.5 : window.innerHeight - 20
+    );
+
+    // Mise à jour de la variable CSS pour le padding-bottom du body
+    document.documentElement.style.setProperty("--pool-height", `${poolHeight}px`);
+
+    // Ajustement des colonnes en fonction du nombre d'items
+    const containers = exercisePool.querySelectorAll(".exercise-item-container");
+    containers.forEach((container) => {
+      const itemCount = container.children.length;
+      if (itemCount <= 2) {
+        container.style.gridTemplateColumns = `repeat(${itemCount}, 240px)`;
+      } else {
+        container.style.gridTemplateColumns = "repeat(auto-fit, 240px)";
+      }
+    });
+  }
 }
 
 document.addEventListener("dragstart", (e) => {
@@ -124,3 +157,4 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
 });
 
 initializeExercises();
+checkCategoryVisibility(); // Appeler checkCategoryVisibility après l'initialisation
