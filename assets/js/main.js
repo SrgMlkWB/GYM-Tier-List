@@ -116,29 +116,32 @@ function checkCategoryVisibility(movedItem) {
   // Mise à jour de la hauteur du pool en fonction du contenu
   if (totalItems === 0) {
     exercisePool.style.display = "none";
-    document.documentElement.style.setProperty("--pool-height", "0px");
   } else {
     exercisePool.style.display = "block";
 
-    // Calcul de la hauteur nécessaire
-    const poolHeight = Math.min(
-      exercisePool.scrollHeight,
-      window.innerWidth <= 1200 ? window.innerHeight * 0.5 : window.innerHeight - 20
-    );
+    // Ajout d'indicateurs de défilement pour mobile
+    if (window.innerWidth <= 1200) {
+      // Supprime les indicateurs existants
+      const existingIndicators = document.querySelectorAll(".scroll-indicator");
+      existingIndicators.forEach((ind) => ind.remove());
 
-    // Mise à jour de la variable CSS pour le padding-bottom du body
-    document.documentElement.style.setProperty("--pool-height", `${poolHeight}px`);
+      // Ajoute des indicateurs de défilement si nécessaire
+      const containers = exercisePool.querySelectorAll(".exercise-item-container");
+      containers.forEach((container) => {
+        if (container.scrollWidth > container.clientWidth && container.children.length > 1) {
+          const leftIndicator = document.createElement("div");
+          leftIndicator.className = "scroll-indicator left-indicator";
+          leftIndicator.innerHTML = "&lt;";
 
-    // Ajustement des colonnes en fonction du nombre d'items
-    const containers = exercisePool.querySelectorAll(".exercise-item-container");
-    containers.forEach((container) => {
-      const itemCount = container.children.length;
-      if (itemCount <= 2) {
-        container.style.gridTemplateColumns = `repeat(${itemCount}, 240px)`;
-      } else {
-        container.style.gridTemplateColumns = "repeat(auto-fit, 240px)";
-      }
-    });
+          const rightIndicator = document.createElement("div");
+          rightIndicator.className = "scroll-indicator right-indicator";
+          rightIndicator.innerHTML = "&gt;";
+
+          container.parentNode.appendChild(leftIndicator);
+          container.parentNode.appendChild(rightIndicator);
+        }
+      });
+    }
   }
 }
 
@@ -206,5 +209,70 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   });
 });
 
+// Fonction pour faire défiler les cartes
+function setupScrollIndicators() {
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("left-indicator")) {
+      const category = e.target.closest(".exercise-category");
+      const container = category.querySelector(".exercise-item-container");
+      container.scrollBy({ left: -container.clientWidth, behavior: "smooth" });
+    } else if (e.target.classList.contains("right-indicator")) {
+      const category = e.target.closest(".exercise-category");
+      const container = category.querySelector(".exercise-item-container");
+      container.scrollBy({ left: container.clientWidth, behavior: "smooth" });
+    }
+  });
+
+  // Amélioration pour les appareils tactiles
+  if ("ontouchstart" in window) {
+    // Ajouter des gestionnaires d'événements tactiles pour le défilement
+    document.querySelectorAll(".exercise-item-container").forEach((container) => {
+      let startX, scrollLeft;
+
+      container.addEventListener(
+        "touchstart",
+        (e) => {
+          startX = e.touches[0].pageX - container.offsetLeft;
+          scrollLeft = container.scrollLeft;
+        },
+        { passive: true }
+      );
+
+      container.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!startX) return;
+          const x = e.touches[0].pageX - container.offsetLeft;
+          const walk = (x - startX) * 2; // Vitesse de défilement
+          container.scrollLeft = scrollLeft - walk;
+        },
+        { passive: true }
+      );
+    });
+  }
+}
+
+// Améliorer les boutons de tier pour les appareils tactiles
+function enhanceTierButtons() {
+  if ("ontouchstart" in window) {
+    document.querySelectorAll(".tier-btn").forEach((btn) => {
+      btn.addEventListener("touchstart", () => {
+        btn.style.transform = "scale(1.2)";
+      });
+
+      btn.addEventListener("touchend", () => {
+        btn.style.transform = "";
+      });
+    });
+  }
+}
+
 initializeExercises();
 checkCategoryVisibility(); // Appeler checkCategoryVisibility après l'initialisation
+setupScrollIndicators(); // Configurer les indicateurs de défilement
+enhanceTierButtons(); // Améliorer les boutons pour les appareils tactiles
+
+// Recalculer lors du redimensionnement de la fenêtre
+window.addEventListener("resize", () => {
+  checkCategoryVisibility();
+});
